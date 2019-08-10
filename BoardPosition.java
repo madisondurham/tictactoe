@@ -1,16 +1,17 @@
-package cpsc2150.hw2;
+package cpsc2150.hw4;
 
 
 /**
- * Created by Madison on 9/19/2017.
+ * @Author Madison Durham
+ * @Since 9/19/2017
  */
 public class BoardPosition {
-    private  int Row;
-    private  int Column;
-    private  char Player;
+    private int Row;
+    private int Column;
+    private char Player;
 
-    public  void BoardPosition(int row, int column, char player)
-    {
+
+    public BoardPosition(int row, int column, char player) {
         Row = row;
         Column = column;
         Player = player;
@@ -20,8 +21,7 @@ public class BoardPosition {
      * @requires [Row has a value]
      * @ensures getRow = Row
      */
-    public  int getRow()
-    {
+    public int getRow() {
 
         return Row;
     }
@@ -30,8 +30,7 @@ public class BoardPosition {
      * @requires [Column has a value]
      * @ensures getColumn = Column
      */
-    public  int getColumn()
-    {
+    public int getColumn() {
         return Column;
     }
 
@@ -39,8 +38,26 @@ public class BoardPosition {
      * @requires [Player has a value]
      * @ensures getPlayer = Player
      */
-    public  char getPlayer()
-    {
+    public char getPlayer() {
         return Player;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj == this)
+        {
+
+            return true;
+        }
+        else if (! (obj instanceof BoardPosition))
+        {
+
+            return false;
+        }
+
+        BoardPosition pos = (BoardPosition) obj;
+
+        return Double.compare(Row,pos.Row) == 0 && Double.compare(Column,pos.Column) == 0 && Double.compare(Player,pos.Player) == 0;
     }
 }
